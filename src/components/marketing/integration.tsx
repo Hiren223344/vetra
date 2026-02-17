@@ -8,13 +8,13 @@ import Images from "../global/images";
 import { Button } from "../ui/button";
 import Ripple from "../ui/ripple";
 
-const SOCIAL_PLATFORMS = [
-    { icon: Icons.linkedin, position: "left-3", size: "small", iconSize: "small", className: "hidden lg:flex" },
-    { icon: Icons.tiktok, position: "left-2", size: "medium", iconSize: "medium" },
-    { icon: Icons.insta, position: "left-1", size: "large", iconSize: "large" },
-    { icon: Icons.youtube, position: "right-1", size: "large", iconSize: "large" },
-    { icon: Icons.x, position: "right-2", size: "medium", iconSize: "medium" },
-    { icon: Icons.facebook, position: "right-3", size: "small", iconSize: "small", className: "hidden lg:flex" }
+const AI_PROVIDERS = [
+    { name: "OpenAI", icon: Icons.linkedin, position: "left-3", size: "small", iconSize: "small", className: "hidden lg:flex" },
+    { name: "Anthropic", icon: Icons.tiktok, position: "left-2", size: "medium", iconSize: "medium" },
+    { name: "Google Gemini", icon: Icons.insta, position: "left-1", size: "large", iconSize: "large" },
+    { name: "Groq", icon: Icons.youtube, position: "right-1", size: "large", iconSize: "large" },
+    { name: "DeepInfra", icon: Icons.x, position: "right-2", size: "medium", iconSize: "medium" },
+    { name: "Cohere", icon: Icons.facebook, position: "right-3", size: "small", iconSize: "small", className: "hidden lg:flex" }
 ];
 
 const Integration = () => {
@@ -70,13 +70,16 @@ const Integration = () => {
 
             <div className="flex flex-col items-center text-center max-w-3xl mx-auto lg:absolute lg:top-1/4 inset-x-0 mt-12 lg:mt-0">
                 <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-semibold !leading-snug">
-                    Social Media Integration
+                    Available Providers
                 </h2>
+                <p className="text-base md:text-lg text-center text-muted-foreground mt-4">
+                    Connect to the world's leading AI model providers
+                </p>
             </div>
             <div className="flex flex-col items-center text-center max-w-3xl mx-auto lg:absolute lg:bottom-1/4 inset-x-0 z-20 mt-8 lg:mt-0">
                 <Link href="#">
                     <Button size="lg">
-                        See all Integrations
+                        View all AI Providers
                         <ArrowRightIcon className="size-4" />
                     </Button>
                 </Link>
@@ -94,20 +97,21 @@ const Integration = () => {
                         <Images.logo className="size-24 group-hover:scale-110 transition-all duration-500" />
                     </div>
 
-                    {SOCIAL_PLATFORMS.map((platform, index) => (
+                    {AI_PROVIDERS.map((provider, index) => (
                         <div
                             key={index}
+                            title={provider.name}
                             className={cn(
                                 "absolute z-20 size-16 p-3 rounded-full flex items-center justify-center bg-gradient-to-b from-foreground/5 to-transparent shadow-xl shadow-black/10 backdrop-blur-lg transition-all duration-300 hover:scale-110",
-                                getPositionClasses(platform.position),
-                                getSizeClasses(platform.size),
-                                platform.className
+                                getPositionClasses(provider.position),
+                                getSizeClasses(provider.size),
+                                provider.className
                             )}
                         >
-                            <platform.icon
+                            <provider.icon
                                 className={cn(
                                     "size-auto text-foreground",
-                                    getIconSizeClasses(platform.iconSize)
+                                    getIconSizeClasses(provider.iconSize)
                                 )}
                             />
                         </div>

@@ -12,39 +12,39 @@ export type PLAN = {
 
 export const PLANS: PLAN[] = [
     {
-        id: "standard",
-        title: "Standard",
-        desc: "Perfect for solopreneurs and small teams looking to automate their content creation and social media with AI tools.",
-        monthlyPrice: 29,
-        annuallyPrice: 306,
-        buttonText: "Upgrade to Standard",
+        id: "pro",
+        title: "PRO",
+        desc: "Perfect for developers and teams who need access to multiple AI models and providers with unlimited API calls.",
+        monthlyPrice: 500,
+        annuallyPrice: 5000,
+        buttonText: "Start with PRO",
         features: [
-            "AI content (1,000 words/mo)",
-            "3 social media channels",
-            "Basic post scheduling",
-            "Content calendar",
-            "Basic analytics dashboard",
-            "2 team members",
-            "Email support"
+            "No Limits Every AI",
+            "All AI Model Providers",
+            "Unlimited API Calls",
+            "Priority Support",
+            "Advanced Analytics",
+            "Custom Integrations",
+            "Up to 50 team members"
         ],
         link: "#"
     },
     {
-        id: "mastermind",
-        title: "Mastermind",
-        desc: "Ideal for growing businesses and agencies who need advanced AI capabilities and automation to scale their marketing.",
-        monthlyPrice: 79,
-        annuallyPrice: 834,
-        badge: "Most Popular",
-        buttonText: "Upgrade to Mastermind",
+        id: "enterprise",
+        title: "Enterprise",
+        desc: "For large organizations needing custom solutions, dedicated support, and enhanced security with SLA guarantees.",
+        monthlyPrice: 0,
+        annuallyPrice: 0,
+        badge: "Custom Pricing",
+        buttonText: "Contact Sales",
         features: [
-            "AI content (10,000 words/mo)",
-            "Advanced AI copywriting",
-            "Multi-language content generation",
-            "Custom brand voice training",
-            "Custom workflow automation",
-            "Priority 24/7 support",
-            "Up to 10 team members"
+            "Unlimited Everything",
+            "Dedicated Account Manager",
+            "Custom SLA & Support",
+            "Advanced Security & Compliance",
+            "Custom Training & Onboarding",
+            "Priority 24/7 Support",
+            "Unlimited Team Members"
         ],
         link: "#"
     },

@@ -27,17 +27,17 @@ const Pricing = () => {
                 <Container>
                     <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
                         <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-medium !leading-snug mt-6">
-                            Find the right plan that suits <br className="hidden lg:block" /> <span className="font-subheading italic">your needs</span>
+                            Choose your AI Gateway <br className="hidden lg:block" /> <span className="font-subheading italic">Plan</span>
                         </h2>
                         <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                            Transform your marketing with AI-powered automation. Create campaigns faster, generate better content, and make smarter decisions in minutes.
+                            Access unlimited AI models from top providers. Scale from development to production with our unified AI Gateway platform.
                         </p>
                     </div>
                 </Container>
 
                 <Container delay={0.2}>
                     <div className="flex items-center justify-center space-x-4 mt-6">
-                        <span className="text-base font-medium">Monthly</span>
+                        <span className="text-base font-medium">₹/Month</span>
                         <button onClick={handleSwitch} className="relative rounded-full focus:outline-none">
                             <div className="w-12 h-6 transition rounded-full shadow-md outline-none bg-blue-500"></div>
                             <div
@@ -47,7 +47,7 @@ const Pricing = () => {
                                 )}
                             />
                         </button>
-                        <span className="text-base font-medium">Annually</span>
+                        <span className="text-base font-medium">₹/Year</span>
                     </div>
                 </Container>
             </div>
@@ -67,9 +67,9 @@ const Plan = ({ plan, billPlan }: { plan: PLAN, billPlan: Plan }) => {
     return (
         <div className={cn(
             "flex flex-col relative rounded-2xl lg:rounded-3xl transition-all bg-background/ items-start w-full border border-foreground/10 overflow-hidden",
-            plan.title === "Mastermind" && "border-blue-500"
+            plan.title === "Enterprise" && "border-blue-500"
         )}>
-            {plan.title === "Mastermind" && (
+            {plan.title === "Enterprise" && (
                 <div className="absolute top-1/2 inset-x-0 mx-auto h-12 -rotate-45 w-full bg-blue-600 rounded-2xl lg:rounded-3xl blur-[8rem] -z-10"></div>
             )}
 
@@ -78,25 +78,29 @@ const Plan = ({ plan, billPlan }: { plan: PLAN, billPlan: Plan }) => {
                     {plan.title}
                 </h2>
                 <h3 className="mt-3 text-3xl font-medium md:text-5xl">
-                    <NumberFlow
-                        value={billPlan === "monthly" ? plan.monthlyPrice : plan.annuallyPrice}
-                        suffix={billPlan === "monthly" ? "/mo" : "/yr"}
-                        format={{
-                            currency: "USD",
-                            style: "currency",
-                            currencySign: "standard",
-                            minimumFractionDigits: 0,
-                            maximumFractionDigits: 0,
-                            currencyDisplay: "narrowSymbol"
-                        }}
-                    />
+                    {plan.monthlyPrice === 0 && plan.annuallyPrice === 0 ? (
+                        <span>Custom</span>
+                    ) : (
+                        <NumberFlow
+                            value={billPlan === "monthly" ? plan.monthlyPrice : plan.annuallyPrice}
+                            suffix={billPlan === "monthly" ? "/mo" : "/yr"}
+                            format={{
+                                currency: "INR",
+                                style: "currency",
+                                currencySign: "standard",
+                                minimumFractionDigits: 0,
+                                maximumFractionDigits: 0,
+                                currencyDisplay: "narrowSymbol"
+                            }}
+                        />
+                    )}
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground mt-2">
                     {plan.desc}
                 </p>
             </div>
             <div className="flex flex-col items-start w-full px-4 py-2 md:px-8">
-                <Button size="lg" variant={plan.title === "Mastermind" ? "blue" : "white"} className="w-full">
+                <Button size="lg" variant={plan.title === "Enterprise" ? "blue" : "white"} className="w-full">
                     {plan.buttonText}
                 </Button>
                 <div className="h-8 overflow-hidden w-full mx-auto">

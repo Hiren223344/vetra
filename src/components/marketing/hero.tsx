@@ -49,24 +49,24 @@ const Hero = () => {
                             <span className="backdrop absolute inset-[1px] rounded-full bg-background transition-colors duration-200 group-hover:bg-neutral-800" />
                             <span className="z-10 py-0.5 text-sm text-neutral-100 flex items-center">
                                 <span className="px-2 py-[0.5px] h-[18px] tracking-wide flex items-center justify-center rounded-full bg-gradient-to-r from-sky-400 to-blue-600 text-[9px] font-medium mr-2 text-white">
-                                    NEW
+                                    2026
                                 </span>
-                                Explore the 2024 recap
+                                Explore AI Providers & Models
                             </span>
                         </button>
                     </Container>
                     <Container delay={0.15}>
                         <h1 className="text-4xl md:text-4xl lg:text-7xl font-bold text-center !leading-tight max-w-4xl mx-auto">
-                            Transform your {" "}
+                            The Ultimate {" "}
                             <span className="">
-                                marketing {" "}
+                                AI Gateway {" "}
                             </span>
-                            with AI Precision
+                            Platform
                         </h1>
                     </Container>
                     <Container delay={0.2}>
                         <p className="max-w-xl mx-auto mt-2 text-base lg:text-lg text-center text-muted-foreground">
-                            AI-powered automation and insights to maximize your campaigns and grow your brand.
+                            Access the world's most powerful AI models in one unified platform. Integrate seamlessly with top AI providers for unlimited possibilities.
                         </p>
                     </Container>
                     <Container delay={0.25} className="z-20">

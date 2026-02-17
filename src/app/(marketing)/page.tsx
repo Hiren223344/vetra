@@ -7,6 +7,7 @@ import Hero from "@/components/marketing/hero";
 import Integration from "@/components/marketing/integration";
 import LanguageSupport from "@/components/marketing/lang-support";
 import Pricing from "@/components/marketing/pricing";
+import AIProviders from "@/components/marketing/ai-providers";
 
 const HomePage = () => {
     return (
@@ -16,6 +17,7 @@ const HomePage = () => {
             <Features />
             <Analysis />
             <Integration />
+            <AIProviders />
             <Pricing />
             <LanguageSupport />
             <CTA />

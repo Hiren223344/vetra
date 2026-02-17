@@ -16,8 +16,8 @@ interface MetadataProps {
 }
 
 export const generateMetadata = ({
-    title = `Vetra - AI-Powered Project Management & Team Collaboration`,
-    description = `Vetra is an intelligent project management platform that transforms how teams work together. Leverage AI to automate workflows, enhance collaboration, and boost productivity. Experience smarter project management today.`,
+    title = `Frenix - The Ultimate AI Gateway Platform`,
+    description = `Frenix is a unified AI Gateway that connects you to the world's most powerful AI models from top providers like OpenAI, Anthropic, Google Gemini, and more. Access unlimited AI capabilities in one platform.`,
     icons = [
         {
             rel: "icon",
@@ -32,16 +32,17 @@ export const generateMetadata = ({
     ],
     noIndex = false,
     keywords = [
-        "AI marketing automation",
-        "social media marketing",
-        "content generation",
-        "marketing analytics",
-        "campaign management",
-        "multilingual marketing",
-        "AI copywriting",
-        "marketing workflow",
-        "performance tracking",
-        "digital marketing tools"
+        "AI Gateway",
+        "AI API",
+        "OpenAI",
+        "Claude",
+        "Google Gemini",
+        "Groq",
+        "AI models",
+        "LLM API",
+        "Unified AI platform",
+        "AI integration",
+        "AI providers"
     ],
     author = process.env.NEXT_PUBLIC_AUTHOR_NAME,
     type = "website",
