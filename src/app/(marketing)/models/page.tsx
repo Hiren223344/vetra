@@ -3,11 +3,12 @@ import Container from "@/components/global/container";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
+import { Anthropic, OpenAI, Alibaba, DeepSeek, Xai } from '@lobehub/icons';
 
 const AI_MODELS = [
     {
         provider: "Anthropic",
-        initial: "A",
+        icon: Anthropic,
         models: [
             "Claude Opus 4.6",
             "Claude Sonnet 4.5",
@@ -17,7 +18,7 @@ const AI_MODELS = [
     },
     {
         provider: "OpenAI",
-        initial: "O",
+        icon: OpenAI,
         models: [
             "GPT 5.2"
         ],
@@ -25,7 +26,7 @@ const AI_MODELS = [
     },
     {
         provider: "Alibaba",
-        initial: "A",
+        icon: Alibaba,
         models: [
             "GLM 5"
         ],
@@ -33,7 +34,7 @@ const AI_MODELS = [
     },
     {
         provider: "DeepSeek",
-        initial: "D",
+        icon: DeepSeek,
         models: [
             "DeepSeek V3.2"
         ],
@@ -41,7 +42,7 @@ const AI_MODELS = [
     },
     {
         provider: "xAI",
-        initial: "x",
+        icon: Xai,
         models: [
             "Grok 4"
         ],
@@ -85,19 +86,17 @@ export default function ModelsPage() {
                                 <div className="relative z-10">
                                     {/* Provider header */}
                                     <div className="flex items-start justify-between mb-6">
-                                        <div>
-                                            <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center mb-3`}>
-                                                <span className="text-lg font-bold text-white">{item.initial}</span>
-                                            </div>
+                                        <div className="flex items-center gap-3">
+                                            <item.icon size={40} />
                                             <h3 className="text-xl font-bold text-foreground">{item.provider}</h3>
                                         </div>
                                     </div>
 
                                     {/* Models list */}
-                                    <div className="space-y-3">
+                                    <div className="space-y-2">
                                         {item.models.map((model, modelIndex) => (
-                                            <div key={modelIndex} className="flex items-center gap-3">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-500/60 group-hover:bg-blue-500 transition-all"></div>
+                                            <div key={modelIndex} className="flex items-center gap-2">
+                                                <span className="text-blue-500 text-lg">→</span>
                                                 <span className="text-sm text-muted-foreground group-hover:text-foreground transition-all">{model}</span>
                                             </div>
                                         ))}
