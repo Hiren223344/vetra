@@ -140,7 +140,9 @@ export default function ModelsPage() {
                         model.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         model.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         model.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-                    ).map((model, index) => (
+                    ).map((model, index) => {
+                        const IconComponent = model.icon;
+                        return (
                         <div
                             key={index}
                             className="group relative rounded-xl bg-gradient-to-r from-foreground/5 to-foreground/[0.02] border border-foreground/10 hover:border-blue-500/30 transition-all duration-300 p-6 hover:shadow-lg hover:shadow-blue-500/5"
@@ -148,7 +150,7 @@ export default function ModelsPage() {
                             <div className="flex items-start gap-4">
                                 {/* Logo */}
                                 <div className="flex-shrink-0 pt-1">
-                                    <model.icon size={32} />
+                                    <IconComponent size={32} />
                                 </div>
 
                                 {/* Content */}
@@ -193,7 +195,8 @@ export default function ModelsPage() {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </main>
