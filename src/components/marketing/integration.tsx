@@ -3,6 +3,7 @@ import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "../global/container";
+import Wrapper from "../global/wrapper";
 import Icons from "../global/icons";
 import Images from "../global/images";
 import { Button } from "../ui/button";
@@ -50,76 +51,43 @@ const Integration = () => {
     };
 
     return (
-        <div className="relative flex flex-col items-center justify-center w-full py-20 scale-">
-            <Container className="relative">
-                <div className="relative flex flex-col lg:hidden items-center justify-center overflow-visible">
-                    <div className="absolute top-1/2 -translate-y-1/2 right-1/4 w-3/5 h-14 lg:h-20 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full -rotate-12 blur-[6.5rem] -z-10"></div>
-
-                    <div className="max-w-sm w-full h-auto mx-auto mt-8">
-                        <Image
-                            src="/images/integration.svg"
-                            alt="Integration"
-                            width={1000}
-                            height={1000}
-                            className="w-full h-auto"
-                        />
-                    </div>
-
-                </div>
-            </Container>
-
-            <div className="flex flex-col items-center text-center max-w-3xl mx-auto lg:absolute lg:top-1/4 inset-x-0 mt-12 lg:mt-0">
-                <h2 className="text-2xl md:text-4xl lg:text-6xl font-heading font-semibold !leading-snug">
-                    Available Providers
-                </h2>
-                <p className="text-base md:text-lg text-center text-muted-foreground mt-4">
-                    Connect to the world's leading AI model providers
-                </p>
-            </div>
-            <div className="flex flex-col items-center text-center max-w-3xl mx-auto lg:absolute lg:bottom-1/4 inset-x-0 z-20 mt-8 lg:mt-0">
-                <Link href="#">
-                    <Button size="lg">
-                        View all AI Providers
-                        <ArrowRightIcon className="size-4" />
-                    </Button>
-                </Link>
-            </div>
-
-            <Container delay={0.3}>
-                <div className="relative hidden lg:flex items-center justify-center overflow-visible">
-                    <div className="absolute top-1/2 -translate-y-1/2 right-1/4 w-3/5 h-14 lg:h-20 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full -rotate-12 blur-[6.5rem] -z-10"></div>
-
-                    <div className="relative flex h-dvh w-full flex-col items-center justify-center overflow-visible">
-                        <Ripple />
-                    </div>
-
-                    <div className="absolute z-20 flex items-center justify-center group">
-                        <Images.logo className="size-24 group-hover:scale-110 transition-all duration-500" />
-                    </div>
-
-                    {AI_PROVIDERS.map((provider, index) => (
-                        <div
-                            key={index}
-                            title={provider.name}
-                            className={cn(
-                                "absolute z-20 size-16 p-3 rounded-full flex items-center justify-center bg-gradient-to-b from-foreground/5 to-transparent shadow-xl shadow-black/10 backdrop-blur-lg transition-all duration-300 hover:scale-110",
-                                getPositionClasses(provider.position),
-                                getSizeClasses(provider.size),
-                                provider.className
-                            )}
-                        >
-                            <provider.icon
-                                className={cn(
-                                    "size-auto text-foreground",
-                                    getIconSizeClasses(provider.iconSize)
-                                )}
-                            />
+        <section className="relative py-20">
+            <Wrapper>
+                <Container>
+                    <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-semibold !leading-snug">
+                            Enterprise AI Integration
+                        </h2>
+                        <p className="text-base md:text-lg text-center text-muted-foreground mt-6">
+                            Seamlessly connect to multiple AI providers with a single unified API. Scale your AI infrastructure without vendor lock-in.
+                        </p>
+                        <div className="mt-8">
+                            <Link href="#">
+                                <Button size="lg">
+                                    View all Integrations
+                                    <ArrowRightIcon className="size-4" />
+                                </Button>
+                            </Link>
                         </div>
-                    ))}
+                    </div>
+                </Container>
 
+                <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {AI_PROVIDERS.map((provider, index) => (
+                        <Container key={index} delay={0.05 * (index + 1)}>
+                            <div className="p-4 rounded-xl bg-gradient-to-br from-foreground/5 to-foreground/[0.02] border border-foreground/10 hover:border-blue-500/50 transition-all duration-300">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                                        <span className="text-xs font-bold text-white">API</span>
+                                    </div>
+                                    <span className="font-semibold text-sm">{provider.name}</span>
+                                </div>
+                            </div>
+                        </Container>
+                    ))}
                 </div>
-            </Container>
-        </div>
+            </Wrapper>
+        </section>
     )
 };
 

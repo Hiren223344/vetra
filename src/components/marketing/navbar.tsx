@@ -1,6 +1,6 @@
 import { NAV_LINKS } from "@/constants";
 import Link from "next/link";
-import Icons from "../global/icons";
+import Image from "next/image";
 import Wrapper from "../global/wrapper";
 import { Button } from "../ui/button";
 import MobileMenu from "./mobile-menu";
@@ -12,7 +12,13 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-full">
                     <div className="flex items-center">
                         <Link href="/" className="flex items-center gap-2">
-                            <Icons.icon className="w-6" />
+                            <Image 
+                                src="/logo.png" 
+                                alt="Frenix Logo" 
+                                width={40} 
+                                height={40}
+                                className="w-8 h-8"
+                            />
                             <span className="text-xl font-semibold hidden lg:block">
                                 Frenix
                             </span>

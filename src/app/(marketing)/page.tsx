@@ -8,6 +8,7 @@ import Integration from "@/components/marketing/integration";
 import LanguageSupport from "@/components/marketing/lang-support";
 import Pricing from "@/components/marketing/pricing";
 import AIProviders from "@/components/marketing/ai-providers";
+import Models from "@/components/marketing/models";
 
 const HomePage = () => {
     return (
@@ -18,6 +19,7 @@ const HomePage = () => {
             <Analysis />
             <Integration />
             <AIProviders />
+            <Models />
             <Pricing />
             <LanguageSupport />
             <CTA />
