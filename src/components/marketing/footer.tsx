@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "../global/container";
 import Icons from "../global/icons";
 
@@ -9,13 +10,19 @@ const Footer = () => {
                 <Container>
                     <div className="flex flex-col items-start justify-start md:max-w-[200px]">
                         <div className="flex items-center gap-2">
-                            <Icons.icon className="w-auto h-5" />
+                            <Image 
+                                src="/logo.png" 
+                                alt="Frenix Logo" 
+                                width={24} 
+                                height={24}
+                                className="w-6 h-6"
+                            />
                             <span className="text-base md:text-lg font-medium text-foreground">
-                                Vetra
+                                Frenix
                             </span>
                         </div>
                         <p className="text-muted-foreground mt-4 text-sm text-start">
-                            AI-powered platform that transforms your marketing workflow in seconds.
+                            The ultimate AI Gateway platform connecting you to the world's most powerful AI models.
                         </p>
                     </div>
                 </Container>
@@ -133,7 +140,7 @@ const Footer = () => {
             <Container delay={0.5} className="w-full relative mt-12 lg:mt-20">
                 <div className="mt-8 md:flex md:items-center justify-center footer w-full">
                     <p className="text-sm text-muted-foreground mt-8 md:mt-0">
-                        &copy; {new Date().getFullYear()} Vetra. All rights reserved.
+                        &copy; {new Date().getFullYear()} Frenix. All rights reserved.
                     </p>
                 </div>
             </Container>
