@@ -1,6 +1,8 @@
+'use client';
+
 import { Claude, OpenAI, Alibaba, DeepSeek, Xai } from '@lobehub/icons';
-import { SearchIcon, ListIcon, Grid3x3Icon, Settings2Icon } from 'lucide-react';
-import { Input } from "@/components/ui/input";
+import { SearchIcon, ListIcon, Settings2Icon } from 'lucide-react';
+import { useState } from 'react';
 
 const AI_MODELS = [
     {
@@ -89,12 +91,8 @@ const AI_MODELS = [
     }
 ];
 
-export const metadata = {
-    title: "AI Models - Frenix",
-    description: "Explore all available AI models from leading providers on Frenix. Choose from Claude, GPT, GLM, DeepSeek, and more.",
-};
-
 export default function ModelsPage() {
+    const [searchQuery, setSearchQuery] = useState('');
     return (
         <main className="min-h-screen bg-background">
             {/* Header */}
@@ -107,17 +105,19 @@ export default function ModelsPage() {
                         </div>
                         <div className="flex items-center gap-3">
                             <div className="relative hidden sm:block">
-                                <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                                <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
                                 <input
                                     type="text"
                                     placeholder="Search models..."
-                                    className="pl-10 pr-4 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500/50 transition-colors"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="pl-10 pr-4 py-2 rounded-lg bg-foreground/5 border border-foreground/10 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500/50 transition-colors w-64"
                                 />
                             </div>
-                            <button className="p-2 rounded-lg bg-foreground/5 border border-foreground/10 hover:border-blue-500/50 transition-colors">
+                            <button className="p-2 rounded-lg bg-foreground/5 border border-foreground/10 hover:border-blue-500/50 transition-colors flex-shrink-0">
                                 <Settings2Icon className="w-4 h-4 text-foreground" />
                             </button>
-                            <button className="p-2 rounded-lg bg-foreground/5 border border-foreground/10 hover:border-blue-500/50 transition-colors">
+                            <button className="p-2 rounded-lg bg-foreground/5 border border-foreground/10 hover:border-blue-500/50 transition-colors flex-shrink-0">
                                 <ListIcon className="w-4 h-4 text-foreground" />
                             </button>
                         </div>
@@ -136,7 +136,11 @@ export default function ModelsPage() {
             {/* Models List */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="space-y-4">
-                    {AI_MODELS.map((model, index) => (
+                    {AI_MODELS.filter(model => 
+                        model.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        model.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        model.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+                    ).map((model, index) => (
                         <div
                             key={index}
                             className="group relative rounded-xl bg-gradient-to-r from-foreground/5 to-foreground/[0.02] border border-foreground/10 hover:border-blue-500/30 transition-all duration-300 p-6 hover:shadow-lg hover:shadow-blue-500/5"
